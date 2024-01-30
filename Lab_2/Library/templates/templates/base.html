@@ -1,0 +1,33 @@
+<html>
+	<head>
+     <title>My webpage</title>
+     <style>
+			ul {
+			  list-style-type: none;
+			  margin: 0;
+			  padding: 0;
+			}
+			
+			li {
+			  display: inline;
+			}
+			</style>
+  </head>
+	<body>
+    <!-- navbar that should appear on every page -->
+		<ul>
+		  <li><a href="base.html">Home</a></li>
+		  <li><a href="add.html">Addition</a></li>
+		  <li><a href="variable.html">variable</a></li>
+		  <li><a href="random.html">Random Number</a></li>
+		  <li><a href="fizzbuzz.html">Fizz Buzz</a></li>
+		  <li><a href="ex2.html">Exercise 2</a></li>
+		</ul>
+
+    <!-- placeholder for content to be filled in by subsequent views -->
+		{% block content %}
+
+       <!-- Content provided by other templates will be filled in here -->
+    {% endblock %}
+	</body>
+</html>

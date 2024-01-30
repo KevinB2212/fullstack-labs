@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Random Number</h2>
+    <p>
+        {% if x > 50 %}
+            Greater than 50
+        {% else %}
+            Less than or equal to 50
+        {% endif %}
+    </p>
+{% endblock %}
