@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin's Pizza</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #dc3545; /* Light Red */
+            margin-top: 50px;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff; /* Blue */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .links a:hover {
+            background-color: #0056b3; /* Dark Blue */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kevin's Pizza</h1>
+        <div class="links">
+            <a href="{% url 'registration' %}">Login</a>
+            <a href="{% url 'create_pizza' %}">Order Pizza</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .order-item {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .create-pizza-link {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order History</h1>
+        {% if orders %}
+            {% for order in orders %}
+                <div class="order-item">
+                    <h2>Order {{ order.id }}</h2>
+                    <p>Date: {{ order.date }}</p>
+                    <p>Total: ${{ order.total }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No orders found.</p>
+        {% endif %}
+        
+        <!-- Link to create a new pizza order -->
+        <a href="{% url 'create_pizza' %}" class="create-pizza-link">Create a New Pizza Order</a>
+    </div>
+</body>
+</html>

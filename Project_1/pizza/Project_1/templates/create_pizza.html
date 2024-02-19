@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Pizza Order</title>
+</head>
+<body>
+    <h1>Create Pizza Order</h1>
+    <form method="POST" action="{% url 'create_pizza' %}">
+        {% csrf_token %}
+        <!-- Select pizza size -->
+        <label for="size">Pizza Size:</label>
+        <select id="size" name="size">
+            <option value="small">small</option>
+            <option value="medium">medium</option>
+            <option value="large">large</option>
+        </select>
+        <br>
+        <!-- Select pizza crust type -->
+        <label for="crust">Pizza Crust:</label>
+        <select id="crust" name="crust">
+            <option value="normal">Normal</option>
+            <option value="thin">Thin</option>
+            <option value="thick">Thick</option>
+            <option value="gluten_free">Gluten-Free</option>
+        </select>
+        <br>
+        <!-- Select pizza sauce -->
+        <label for="sauce">Pizza Sauce:</label>
+        <select id="sauce" name="sauce">
+            <option value="tomato">Tomato</option>
+            <option value="bbq">BBQ</option>
+        </select>
+        <br>
+        <!-- Select cheese -->
+        <label for="cheese">Cheese:</label>
+        <select id="cheese" name="cheese">
+            <option value="mozzarella">Mozzarella</option>
+            <option value="vegan">Vegan</option>
+            <option value="low_fat">Low Fat</option>
+        </select>
+        <br>
+        <!-- Select toppings -->
+        <label>Toppings:</label><br>
+        <input type="checkbox" id="topping1" name="topping1" value="pepperoni">
+        <label for="topping1"> Pepperoni</label><br>
+        <input type="checkbox" id="topping2" name="topping2" value="chicken">
+        <label for="topping2"> Chicken</label><br>
+        <input type="checkbox" id="topping3" name="topping3" value="ham">
+        <label for="topping3"> Ham</label><br>
+        <input type="checkbox" id="topping4" name="topping4" value="pineapple">
+        <label for="topping4"> Pineapple</label><br>
+        <input type="checkbox" id="topping5" name="topping5" value="peppers">
+        <label for="topping5"> Peppers</label><br>
+        <input type="checkbox" id="topping6" name="topping6" value="mushrooms">
+        <label for="topping6"> Mushrooms</label><br>
+        <input type="checkbox" id="topping7" name="topping7" value="onions">
+        <label for="topping7"> Onions</label><br>
+        <br>
+        <button type="submit">Order Pizza</button>
+    </form>
+</body>
+</html>
