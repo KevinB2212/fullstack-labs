@@ -4,26 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Summary</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #16daf9;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .order-details, .pizza-details {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e8159a;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Order Summary</h1>
         <div class="order-details">
             <h2>Delivery Address:</h2>
-            <p>{{ delivery_address }}</p>
-            <h2>Delivery Date/Time:</h2>
-            <p>{{ delivery_date_time }}</p>
+            <p>{{ delivery_address }}</p>  <!-- Use delivery_address key from session data -->
+            <h2>Delivery date/time:</h2>
+            <p id="deliveryDateTime"></p>  <!-- Placeholder for delivery date/time -->
+            <script>
+                // JavaScript to display current date and time
+                var now = new Date();
+                var dateTimeString = now.toLocaleString();
+                document.getElementById("deliveryDateTime").textContent = dateTimeString;
+            </script>
             <h2>Payment Info:</h2>
-            <p>{{ payment_info }}</p>
+            <p>{{ payment_info }}</p>  <!-- Use payment_info key from session data -->
         </div>
         <div class="pizza-details">
             <h2>Pizza Details:</h2>
-            <p>Size: {{ pizza.size }}</p>
-            <p>Crust: {{ pizza.crust }}</p>
-            <p>Sauce: {{ pizza.sauce }}</p>
-            <p>Cheese: {{ pizza.cheese }}</p>
-            <p>Toppings: {% for topping in pizza.toppings.all %}{{ topping.name }}, {% endfor %}</p>
+            <p>Size: {{ pizza.size.name }}</p>  <!-- Access pizza object attributes directly -->
+            <p>Crust: {{ pizza.crust.name }}</p>
+            <p>Sauce: {{ pizza.sauce.name }}</p>
+            <p>Cheese: {{ pizza.cheese.name }}</p>
+            <p>Toppings:
+                {% for topping in pizza.toppings.all %}
+                    {{ topping.name }},
+                {% endfor %}
+            </p>
         </div>
     </div>
 </body>
