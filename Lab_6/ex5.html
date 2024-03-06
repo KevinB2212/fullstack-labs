@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars API Exercise 5</title>
+</head>
+<body>
+
+    <script>
+        fetch("https://swapi.dev/api/planets/1")
+            .then(response => response.json())
+            .then(data => {
+                console.log('Name of the planet:', data.name);
+                console.log('Diameter:', data.diameter);
+                console.log('Climate:', data.climate);
+                console.log('Terrain:', data.terrain);
+                console.log('Population:', data.population);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+
+</body>
+</html>

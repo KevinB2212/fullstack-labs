@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4</title>
+</head>
+<body>
+
+    <form onsubmit="validateForm(event)">
+        <label for="number1Input">Number 1:</label>
+        <input type="text" id="number1Input" required pattern="\d+">
+
+        <label for="number2Input">Number 2:</label>
+        <input type="text" id="number2Input" required pattern="\d+">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm(event) {
+            var number1Input = document.getElementById("number1Input").value;
+            var number2Input = document.getElementById("number2Input").value;
+
+            if (!number1Input || !number2Input || isNaN(number1Input) || isNaN(number2Input)) {
+                alert("Both fields must be filled with numbers.");
+                event.preventDefault(); // Prevent form submission
+            }
+        }
+    </script>
+
+</body>
+</html>
